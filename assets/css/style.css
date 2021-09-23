@@ -45,11 +45,11 @@ nav {
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
-    padding: 30px;
+    padding: 30px 40px;
+    background-color: #ccc;
 }
 nav .logo {
    width: 20%;
-   margin-left: 35px; 
 } 
 nav  label span{
     display: block;
@@ -128,13 +128,15 @@ nav .nav li a {
     color:var(--secondry-color);
 }
 nav .service-icon {
-   
+    width: 20%;
+    text-align: right;
 }
 nav .service-icon a {
     margin-left: 20px;
 }
 nav .service-icon a i {
     font-size: large;
+    color: var(--secondry-color);
 }
 nav .nav li :hover,
 nav .service-icon a:hover {
@@ -207,9 +209,9 @@ nav .service-icon a:hover {
        display: unset;
        background-color: var(--secondry-color);
        position: absolute;
-       top:34px;
+       top: 18%;
+       left: 5%;
        width:90%;
-       margin: 5%;
        opacity:0;
        visibility: hidden;
        transition: all .3s ease;
@@ -222,29 +224,30 @@ nav .service-icon a:hover {
         opacity: 1;
         visibility: visible;
     }
-    nav .nav li {
+    nav .nav .item-list {
         position: unset;
         margin:15px;
         padding: 5px;
-        background-color: transparent;
+        border-radius:3px ;
+        color:var(--secondry-color);
         transition: all .3s ease;
         -webkit-transition: all .3s ease;
         -moz-transition: all .3s ease;
         -ms-transition: all .3s ease;
         -o-transition: all .3s ease;
     }
-    nav .nav li:hover  {
+    /* nav .nav li:hover  {
         background-color: #ccc;
-        border: 2px solid var(--responsive-color);
+    }     */
+    nav .nav .item-list:hover  {
+        background-color: #ccc;
+        /* border: 2px solid var(--responsive-color); */
         border-radius:3px ;
         color:var(--secondry-color);
-    }    
-    /* nav .nav>li:hover  {
+    }
+    nav .nav .item-list:hover:not(.dro)  {
         background-color: #ccc;
-        border: 2px solid var(--responsive-color);
-        border-radius:3px ;
-        color:var(--secondry-color);
-    } */
+    }
     /* nav .nav li :hover  {
         background-color: #ccc;
         border: 2px solid var(--responsive-color);
