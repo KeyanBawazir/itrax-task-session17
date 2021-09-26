@@ -46,7 +46,30 @@ a {
     color: #fff;
     border: 0;
     font-weight: 600;
+    z-index: 1;
+    position: relative;
 }
+.btn:hover::after {
+    left:0;
+    /* width:100%; */
+}
+.btn::after {
+    content: "";
+    position: absolute;
+    /* width: 100%; */
+    width:100%;
+    height: 100%;
+    left: -100%;
+    /* left:0; */
+    top:0;
+    background-color: var(--primary-color);
+    z-index: -1;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+}    
 /* -------------------------------------------------------------
                          End Public Style
 ------------------------------------------------------------------
@@ -160,17 +183,28 @@ nav .service-icon a:hover i{
 
 /* ------------------------Start Header Section----------------- */
 .header {
-    width:100%; 
+    width:100%;
     background-color: #f0f0f2;
-}
+    /* position: relative; */
+   
+    
+}    
 
 .header .header-content  {
     /* border:1px solid yellow; */
     align-self: center;
+    overflow: hidden;
+    animation-name:header-content; 
+    animation-duration: .7s; 
+   
+}
+@keyframes header-content {
+    0%{ transform:translateX(-100%) ; -webkit-transform:translateX(-100%) ; -moz-transform:translateX(-100%) ; -ms-transform:translateX(-100%) ; -o-transform:translateX(-100%) ; }
+    100%{ transform:translateX(0) ; -webkit-transform:translateX(0) ; -moz-transform:translateX(0) ; -ms-transform:translateX(0) ; -o-transform:translateX(0) ; }
 }
 .header .header-content h1 {
     color: #0b1c39;
-    font-size: 4.4rem;
+    font-size: 79px;
     line-height: 1.2;
     font-weight: 700;
 } 
@@ -180,22 +214,26 @@ nav .service-icon a:hover i{
     line-height: 1.6;
     font-weight: 400;
     color: #212025;
-    padding-right: 50px
+    padding-right: 50px;
 }
 .header .header-img {
     text-align: center;
-    /* border: 1px solid red; */
+    overflow: hidden;
 }
 .header .header-img img {
-    width:70%;
-    animation-name: scale-img;
-    animation-duration: 1s;
+   width:70%;
+   animation-name: scale-img;
+   animation-duration: 2.3s;
    animation-iteration-count: infinite;
+   animation-direction: alternate;
+   
+   
 }
 @keyframes scale-img {
     from{ transform:scale(1) ; -webkit-transform:scale(1) ; -moz-transform:scale(1) ; -ms-transform:scale(1) ; -o-transform:scale(1) ; }
-    to{ transform:scale(1) ; -webkit-transform:scale(1) ; -moz-transform:scale(1) ; -ms-transform:scale(1) ; -o-transform:scale(1) ; }
+    to{ transform:scale(1.1) ; -webkit-transform:scale(1.1) ; -moz-transform:scale(1.1) ; -ms-transform:scale(1.1) ; -o-transform:scale(1.1) ; }
 }
+
 
 /* ------------------------Endt Header Section----------------- */
 
@@ -209,17 +247,17 @@ nav .service-icon a:hover i{
 */
 /****************************  Media Nav-bar**********************/
 @media(max-width:1199px) {
-    
+    /* ====================== header ========== */
+    .header .header-content h1 {
+        font-size: 65px;
+    } 
 }
 @media(max-width:991px) {
+    /* =========== nav bar============ */
     nav  {
         justify-content: space-between;
         padding: 15px; 
     }
-    nav .logo {
-       
-    } 
-    
     nav label {
         display:block;
         order:2;
@@ -255,24 +293,14 @@ nav .service-icon a:hover i{
         -ms-transition: all .3s ease;
         -o-transition: all .3s ease;
     }
-    /* nav .nav li:hover  {
-        background-color: #ccc;
-    }     */
     nav .nav .item-list:hover  {
         background-color: #ccc;
-        /* border: 2px solid var(--responsive-color); */
         border-radius:3px ;
         color:var(--secondry-color);
     }
     nav .nav .item-list:hover:not(.dro)  {
         background-color: #ccc;
     }
-    /* nav .nav li :hover  {
-        background-color: #ccc;
-        border: 2px solid var(--responsive-color);
-        border-radius:3px ;
-        color:var(--secondry-color);
-    }     */
     nav .nav li a {
         color:#fff;
     }
@@ -309,13 +337,67 @@ nav .service-icon a:hover i{
     }
     nav .service-icon a {
         color:#000;
+        margin-left: 5px;
     }
+    /* =================== header ================= */
+    .header .row {
+        justify-content: space-between;
+    }    
+    .header .header-content {
+        width: 60%;
+        align-self: center;
+        /* لماذا يكتب هنا */
+        /* border: 1px solid yellow; */
+    }
+    .header .header-content h1 {
+        font-size: 49px;
+        margin-bottom: 22px;
+       
+    }
+    .header .header-content p {
+        padding-right: 0;
+        margin-top: 20px;
+        /* margin-bottom: 30px; */
+    }
+    .header .header-img {
+        width: 25%;
+        /* border: 1px solid red; */
+        /* text-align: center; */
+    }
+    .header .header-img img {
+        width:100%;
+    }
+    .header .header-content button {
+        margin-top: -20px;
+    } 
 }
 @media(max-width:767px) {
     
 }
-
 @media(max-width:575px) {
-
+    /* ================== nav bar ================= */
+    .header {
+        padding:60px 0;
+    }
+    .header .header-content {
+        width:100%;
+    }
+    .header .header-content h1 {
+        font-size: 32px;
+        /* line-height: 1.2;
+        margin-bottom: -25px; */
+    } 
+    .header .header-content p {
+        /* padding-right: 0;
+        margin-bottom: 30px; */
+    }
+    
+    .header .header-img { 
+       display: none;
+    } 
+    .header .header-content button {
+        /* margin-top: -20px; */
+    } 
+  
 }
 /*********************** End Media Nav-bar*******************/
