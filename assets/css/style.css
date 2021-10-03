@@ -44,7 +44,7 @@ a {
     font-size: 19px;
     background: #4a4a4b;
     color: #fff;
-    border: 0;
+    border: none;
     font-weight: 600;
     z-index: 1;
     position: relative;
@@ -69,7 +69,17 @@ a {
     -moz-transition: all .5s ease;
     -ms-transition: all .5s ease;
     -o-transition: all .5s ease;
-}    
+} 
+.padding-top-sec {
+    padding: 140px 0;
+} 
+.title {
+    margin-bottom: 55px;
+    text-transform: capitalize;
+}  
+.title h2 {
+    font-size: 55px;
+}
 /* -------------------------------------------------------------
                          End Public Style
 ------------------------------------------------------------------
@@ -229,19 +239,19 @@ nav .service-icon a:hover i{
 }
 /* ------------------------Endt Header Section----------------- */
 /* ---------------------start new-arrivals----------------------- */
-.new-arrivals {
+/* .new-arrivals {
     padding: 140px 0;
-}
+} */
 .new-arrivals .row {
     gap: 25px;
 }
-.new-arrivals .title {
+/* .new-arrivals .title {
     margin-bottom: 55px;
     text-transform: capitalize;
-}
-.new-arrivals .title h2 {
+} */
+/* .new-arrivals .title h2 {
     font-size: 55px;
-}
+} */
 .new-arrivals .product {
     width: 33%;
 }
@@ -323,13 +333,131 @@ nav .service-icon a:hover i{
 }
 /* ----------------------- End image-sec ----------------------- */
 
+/* ----------------------- Start pouplar section ---------------- */
+.popular {
 
+}
+.popular .title {
+    text-align: center;  
+}
+.popular .title h2 {
+    margin-bottom: 20px;
+}
+.popular .title p {
+    font-family: "Roboto",sans-serif;
+    font-size: 16px;
+    color: #777;
+    width: 73%;
+    margin: auto;
+    line-height: 1.9;
+}
+.watch {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+}
+.watch .watch-item {
+   
+}
+.watch .watch-item .watch-img {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--primary-color) ; 
+}
+.watch .watch-item .watch-img button.love-btn {
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    position: absolute;
+    right: 10%;
+    top: 5%;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+}
+.watch .watch-item:hover button.love-btn{
+    opacity: 1;
+    visibility: visible;
+}
+.watch .watch-item .watch-img img {
+    width:100%;
+}
+.watch .watch-item .watch-img button.cart-btn {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    border: none;
+    padding: 20px 0;
+    width: 100%;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+}
+.watch .watch-item:hover button.cart-btn {
+    bottom: 0; 
+}
+.watch .watch-item .watch-details {
+   
+}
+.watch .watch-item .watch-details a {
+    display: block;
+    color: #444;
+    font-weight: 700;
+    font-size: 21px;
+    margin: 22px 0 15px;
+    text-transform: capitalize;
+}
+.watch .watch-item .watch-details span {
+    color: #444;
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+}
+/* .watch-item:last-child() {
+    grid-row: 1/3;
+} */
+.watch .watch-item:nth-child(7) {
+    grid-column: 2/3;
+    overflow: hidden;
+    
+}
+.watch .watch-item:nth-child(7) button.btn {
+    width: 100%;
+    text-transform: uppercase;
+    font-family: "Josefin Sans",sans-serif;
+    font-size: 16px;
+    background-color: var(--primary-color);
+    
+}
+.watch .watch-item:nth-child(7) button.btn::after {
+    right: -100%;
+    background-color: #4a4a4b;
+}
+.watch .watch-item:nth-child(7):hover button.btn::after {
+    right: 0;
+}
+/* ----------------------- End pouplar section ---------------- */
 
 /* ----------------------- Start bg-video -------------------------*/
 .bg-video {
     width: 100%;
     height: 400px;
-    background-image: url('../img/bg/sectin_bg1.webp');
+    /* background-image: url('../img/bg/sectin_bg1.webp'); */
     background-size: cover;
     /*background-position:bottom*غير مؤثر/;
     */
@@ -573,17 +701,33 @@ nav .service-icon a:hover i{
         grid-column: 1/2;
     }
     /* **********************   End Media Image-sec ************* */
+    /* **********************   Start Media Popular-sec ************* */
+    .popular .title h2 {
+        font-size: 37px;
+    }
+    .popular .title p {
+        width:100%;
+    }
+    .watch {
+        grid-template-columns: repeat(2, 1fr);
+    }
+   
+
+    /* **********************   End Media Popular-sec ************* */
 }
 @media(max-width:767px) {
-    /* ================== Start bg-video ================= */
-    .bg-video .next-video p{
-        font-size: 13px;
-      }
-      .bg-video .next-video a {
-          font-size: 25px;
-      }
-    /* ================== End bg-video ================= */ 
+     
 }
+
+/* 
+@media(min-width:575px) and (min-width:612px) {
+    /*================== Start bg-video =================*/
+     .bg-video .next-video {
+        width: 35%;
+      }
+      
+    /* ================== End bg-video ================= */
+
 @media(max-width:575px) {
     /* ================== nav bar ================= */
     .header {
@@ -645,7 +789,37 @@ nav .service-icon a:hover i{
         height: 690px;هل ضروري اعمله عشان مايأثر؟
     }    */
   
-    /* ********************** End Media Image-sec ************* */ 
+    /* ********************** End Media Image-sec ************* */
+    
+    /* ====================== Start popular Section ============ */
+    .popular {
+        padding:50px;
+    }
+    .popular .title h2 {
+        font-size: 33px;
+    }
+    .watch {
+        display: unset;
+    } 
+    .watch .watch-item:nth-child(7) {
+        padding: 45px 0;
+       
+    }
+    .watch .watch-item:nth-child(7) button {
+        /* margin-top: 15px; */
+       
+    } 
+    .watch .watch-item .watch-details {
+        text-align: center;
+       
+    }  
+    /* ====================== End popular Section ============ */
+    /*================== Start bg-video =================*/
+    .bg-video .next-video {
+        width: 35%;
+      }
+      
+    /* ================== End bg-video ================= */
     
   
 }
