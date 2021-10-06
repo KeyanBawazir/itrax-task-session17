@@ -8,6 +8,10 @@
     --secondry-color:#141517;
     --responsive-color:rgb(121, 118, 118);
 }
+html {
+    scroll-behavior: smooth;
+    /* to drop for any section in site smoothy */
+}
 * ,body {
     margin: 0;
     padding: 0;
@@ -15,8 +19,25 @@
 }
 body {
     font-family: 'Josefin Sans', sans-serif;
-    
 }
+::-webkit-scrollbar {
+   
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0  0 5px gray;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #444;
+    transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(134, 134, 134);
+} 
 ul {
     list-style: none;
 }
@@ -70,6 +91,13 @@ a {
     -ms-transition: all .5s ease;
     -o-transition: all .5s ease;
 } 
+.btn-hover-rl:hover ::after {
+    right: 0;
+}
+.btn-hover-rl::after {
+    right: -100%;
+    background-color: #4a4a4b;
+}
 .padding-top-sec {
     padding: 140px 0;
 } 
@@ -89,11 +117,15 @@ nav {
     width: 100%;
     background-color: #FFFFFF;
     display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
+    /*justify-content: space-between;
+    */align-items: center;
     padding: 30px 40px;
     background-color: #fff;
+    position: sticky;
+    top: 0;
     z-index: 99999;
+    filter: drop-shadow(2px 2px 3px #ddd);
+    -webkit-filter: drop-shadow(2px 2px 3px #ddd);
 }
 nav .logo {
    width: 20%;
@@ -442,17 +474,8 @@ nav .service-icon a:hover i{
     font-family: "Josefin Sans",sans-serif;
     font-size: 16px;
     background-color: var(--primary-color);
-    
-}
-.watch .watch-item:nth-child(7) button.btn::after {
-    right: -100%;
-    background-color: #4a4a4b;
-}
-.watch .watch-item:nth-child(7):hover button.btn::after {
-    right: 0;
 }
 /* ----------------------- End pouplar section ---------------- */
-
 /* ----------------------- Start bg-video -------------------------*/
 .bg-video {
     width: 100%;
@@ -522,7 +545,6 @@ nav .service-icon a:hover i{
     justify-content: space-between;
     align-items: center;
 }
-
 .next-video p {
     font-weight: 600;
     color: #fff;
@@ -535,11 +557,172 @@ nav .service-icon a:hover i{
     margin-right: 30px;
 }
 /* ----------------------- End bg-video -------------------------*/
+/* ----------------------- Start choice-watch-------------------- */
+.choice-watch {
+
+}
+.choice-watch-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap:90px 63px;
+    align-items: center;
+}
+.watch-content {
+    overflow: hidden;
+}
+.watch-content h2{
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1;
+    /* margin-bottom: 20px; */
+}
+.watch-content p {
+    width: 87%;
+    color: #777;
+    line-height: 30px;
+    font-family: "Roboto",sans-serif;
+    margin: 20px 0;
+}
+.watch-content .btn {
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+}
+.watch-content button.btn:hover .btn::after {
+    background-color: var(--secondry-color);
+}
+.watch-content img {
+    width: 100%;
+}
+/* ----------------------- End choice-watch-------------------- */
+
+/* ------------------------ Start shop-area------------------- */
+.shop-area {
+
+}
+.shop-area .bg-row {
+    background-color: var(--primary-color);
+    padding: 40px ;
+}
+.shop-area .bg-row .row {
+    justify-content: space-between;
+}
+.shop-content .shop-item {
+    width:30%;
+}
+.shop-area .bg-row .row .shop-item i {
+    font-size: 40px;
+    color: #fff;
+    display: inline-block;
+    margin-bottom:20px;
+}
+.shop-area .bg-row .row .shop-item h5 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.shop-area .bg-row .row .shop-item p {
+    width: 76%;
+    font-family: "Roboto",sans-serif;
+    font-size: 16px;
+    color: #d3d1d1;
+    line-height: 1.6;
+}
+/* ------------------------ End shop-area------------------- */
+/* ------------------------ Start Footer ------------------- */
+footer {
+    padding: 100px 0; 
+}
+.links-footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 0 25px; 
+}
+.links-footer .links-item {
+   
+}
+.links-footer .links-item .logo {
+    margin-bottom: 20px;
+}
+.links-footer .links-item p {
+    line-height: 1.4;
+    font-family: "Roboto",sans-serif;
+    font-size: 14px;
+    color: #777;
+}
+.links-footer .links-item p i, 
+.links-footer .links-item p span {
+    color: var(--primary-color);
+}
+.links-footer .links-item .item-header {
+    margin: 0 0 20px 7px;
+}
+.links-footer .links-item .item-header h5 {
+    font-size: 20px;
+}
+.links-footer .links-item .links {
+   
+}
+.links-footer .links-item ul.links li {
+    /* padding:5px 0; */
+    transform: translateX(10px);
+    margin:10px 0;
+    /*color*/
+    
+}
+.links-footer .links-item ul.links li a {
+    color: #777;
+    text-decoration: none;
+    display: block;
+    transition: all .3s  ease-in;
+    -webkit-transition: all .3s  ease-in;
+    -moz-transition: all .3s  ease-in;
+    -ms-transition: all .3s  ease-in;
+    -o-transition: all .3s  ease-in;
+}
+.links-footer .links-item ul.links li:hover a {
+    color:var(--primary-color);
+    transform: translateX(10px);
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -o-transform: translateX(10px);
+}
+.links-footer .links-item:nth-child(5) {
+    grid-column: 1/4;
+}
+.links-footer .links-item:nth-child(6) {
+    grid-column: 4/5;
+}
+.links-footer .links-item:nth-child(5),
+.links-footer .links-item:nth-child(6) {
+    margin-top: 100px;
+  
+} 
+.links-footer .links-item:nth-child(6) .social-media {
+    text-align: right;
+}
+.links-footer .links-item:nth-child(6) .social-media a {
+    margin-right: 15px;
+}
+.links-footer .links-item:nth-child(6) .social-media a i {
+    color:#000;
+    font-size: 14px;
+}
+.links-footer .links-item .social-media a:hover i {
+    transform:rotateY(-180deg);
+    -webkit-transform:rotateY(-180deg);
+    -moz-transform:rotateY(-180deg);
+    -ms-transform:rotateY(-180deg);
+    -o-transform:rotateY(-180deg);
+    color: var(--primary-color);
+}
 
 
-
-
-
+/* ------------------------ End Footer --------------------- */
 /* ============================================================
                           Start Media Query
 =================================================================
@@ -711,23 +894,40 @@ nav .service-icon a:hover i{
     .watch {
         grid-template-columns: repeat(2, 1fr);
     }
-   
-
     /* **********************   End Media Popular-sec ************* */
+    /* **********************   Start Media choice-watch ************* */
+    .watch-content h2 {
+        /* font-size: 20px; */
+    }    
+    .choice-watch-item .watch-content p {
+        width: 70%;
+        /* font-size: 19px; */
+    } 
+    /* **********************   Ens Media choice-watch ************* */
+    /* *********************     Start Medai shop-area ************* */
+    .shop-area .bg-row .row {
+        flex-wrap: wrap;
+    }
+    .shop-area .bg-row .row .shop-item {
+        width: 42%;
+        margin: 35px 0;
+    }
+    /* *********************  End Medai shop-area ************* */
+    /* ==================== Start Media Footer ================ */
+    .links-footer {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3,1fr);
+        gap: 20px 30px;
+         
+    }
+    .links-footer .links-item {
+       
+    }
+    /* ==================== End Media Footer ================ */
 }
 @media(max-width:767px) {
      
 }
-
-/* 
-@media(min-width:575px) and (min-width:612px) {
-    /*================== Start bg-video =================*/
-     .bg-video .next-video {
-        width: 35%;
-      }
-      
-    /* ================== End bg-video ================= */
-
 @media(max-width:575px) {
     /* ================== nav bar ================= */
     .header {
@@ -791,7 +991,7 @@ nav .service-icon a:hover i{
   
     /* ********************** End Media Image-sec ************* */
     
-    /* ====================== Start popular Section ============ */
+    /* ====================== Start Media popular Section ============ */
     .popular {
         padding:50px;
     }
@@ -807,21 +1007,67 @@ nav .service-icon a:hover i{
     }
     .watch .watch-item:nth-child(7) button {
         /* margin-top: 15px; */
-       
     } 
     .watch .watch-item .watch-details {
         text-align: center;
-       
     }  
-    /* ====================== End popular Section ============ */
-    /*================== Start bg-video =================*/
+    /* ====================== End Media popular Section ============ */
+    /*================== Start Media bg-video =================*/
     .bg-video .next-video {
         width: 35%;
-      }
-      
-    /* ================== End bg-video ================= */
-    
-  
+    }
+    /* ================== End Media bg-video ================= */
+    /* =================== Start Media choice-watch ============= */
+    .choice-watch {
+        padding:  0;
+    }
+    .choice-watch-item {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 10px 0;
+    }   
+    .choice-watch-item .watch-content p {
+        /* width: 100%; */
+    } 
+    /* =================== End Media choice-watch ============= */ 
+    /* ==================== Start Media shop-area ================ */
+    .shop-area .bg-row .row {
+        display: unset;
+    }
+    .shop-area .bg-row .row .shop-item {
+        width: 100%;
+        margin: 35px;
+    }
+    .shop-area .bg-row .row .shop-item p {
+        width: 100%;
+    }  
+    /* ==================== End Media shop-area ================ */
+    /* ==================== Start Media Footer ================ */
+    footer {
+        padding: 100px 0; 
+    }
+    .links-footer {
+        display: unset;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6,1fr);
+    }
+    .links-footer .links-item .item-header {
+        margin-left: 0;
+    }
+    .links-footer .links-item .item-header h5 {
+        margin: 15px 0;
+    }
+    .links-footer .links-item:nth-child(5) {
+        margin-top: 55px;
+    }
+    .links-footer .links-item:nth-child(6) {
+        margin-top:30px;
+    }  
+    .links-footer .links-item:nth-child(6) .social-media {
+        
+        text-align: left;
+    }
+    /* ==================== Endt Media Footer ================ */
 }
 
 
